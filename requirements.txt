@@ -6,3 +6,6 @@ flask_wtf
 flask_sqlalchemy
 flask_ngrok
 sqlite3
+wtforms
+werkzeug
+requests
