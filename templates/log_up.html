@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="form">
+<form class="form-control" action="" method="post" id="form-control">
+    {{ form.hidden_tag() }}
+    <h1>Log up</h1>
+    <p>
+        {{ form.nickname.label }}
+        {{ form.nickname() }}
+    </p>
+    <p>
+        {{ form.password.label }}<br>
+        {{ form.password() }}
+    </p>
+    <p>
+        {{ form.password_again.label }}<br>
+        {{ form.password_again() }}
+    </p>
+    <p>
+        {{ form.remember_me() }} {{ form.remember_me.label }}
+    </p>
+    {% if message %}<div class="alert alert-danger">{{ message }}</div>{% endif %}
+    {{ form.submit(type="submit", class="btn btn-primary") }}
+</form>
+</div>
+{% endblock %}

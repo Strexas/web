@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+  <form action="" method="post" class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="req" value="{{ value }}">
+    <button class="btn btn-success" type="submit" >Search</button>
+  </form>
+  {% for new in news %}
+  <div class="container">
+    <h1><a href="/new/{{ new.id }}">{{ new.title }}</a></h1>
+  </div>
+  {% endfor %}
+  {% if message %}
+    <div class="alert alert-danger" align="center">{{message}}</div>
+  {% endif %}
+</div>
+{% endblock %}

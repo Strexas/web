@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="fon" align="center">
+<div class="jumbotron" id="form">
+  <h1 class="display-4">{{ message }}</h1>
+  <p class="lead">This is a site for gossips</p>
+  <hr class="my-4">
+  <p>You can add your own gossip or read others!</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{{ address }}" role="button">Try it now</a>
+  </p>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+#navbar {
+height:8vh;
+}
+#form {
+    height: 60vh;
+    margin: 15vh auto;
+}
+
+#form_main {
+    height: 90vh;
+    margin: 5vh auto;
+    margin-top: 0;
+}
+
+#form-control {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    padding: 7px;
+}
+
+body {
+    background: #F0F8FF;
+}
+.login {
+    align: right;
+}
+
+
+.jumbotron {
+text-align:center;
+}
+
+
+#footer {
+padding: 10px;
+}
+
+#new{
+margin: 0 auto;
+height: 100vh;
+width: 50vw;
+padding: 10px;
+}
+
+#line_content {
+height: 70vh;
+}
+
+#show_menu {
+text-align: center;
+width: 50vw
+padding: 20px;
+margin-bottom: 10vh;
+}
+
+img {
+height: 40vh;
+}
+
+a{text-decoration: none;}
+a:hover
+{
+
+text-decoration: underline;
+}
+
+.name {
+color: rgb(0, 0, 0);}

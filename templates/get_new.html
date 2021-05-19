@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" id="show_new">
+  <h1>{{ form.title }}</h1>
+  <h3>Author: <a href="{{ address_author }}" class="name">{{ author }}</a></h3>
+  <img src="{{address_image}}" alt=""><br>
+  {% for line in form.content.splitlines() %}
+      {{ line }}<br>
+  {% endfor %}
+  <br>
+  <p>Date of creation: {{ form.created_date }}</p>
+</div>
+{% endblock %}

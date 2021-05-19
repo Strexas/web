@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<style>
+    .contain {margin-left: 5%;}
+</style>
+<div class="contain">
+    <h1><a href="/user/{{ id }}" class="name">{{ user }}</a></h1>
+    {% for new in news%}
+    <h3><a href="/new/{{ new.id }}">{{ new.title }}</a> - {{ new.author }}</h3>
+    {% endfor %}
+</div>
+{% endblock %}
