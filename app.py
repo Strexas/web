@@ -3,6 +3,15 @@ from flask_login import LoginManager
 from data import db_session
 from data.user import User
 
+flask
+flask_ngrok
+flask_login
+flask_wtf
+flask_sqlalchemy
+sqlalchemy
+sqlalchemy_serializer
+sqlite3
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'security_is_important'
