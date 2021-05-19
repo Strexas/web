@@ -39,9 +39,6 @@ def logout():
 def error(error):
     return main()
 
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 if __name__ == '__main__':
     db_session.global_init('db/gossip.sqlite')
@@ -57,5 +54,4 @@ if __name__ == '__main__':
 
     # пользователь
     app.register_blueprint(get_user_blueprint)
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='127.0.0.1', port=port)
+    app.run(host='127.0.0.1', port=5000)
