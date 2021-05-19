@@ -1,3 +1,5 @@
+import os
+
 from flask import render_template, redirect
 from flask_login import login_required, logout_user, current_user
 
@@ -52,4 +54,5 @@ if __name__ == '__main__':
 
     # пользователь
     app.register_blueprint(get_user_blueprint)
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
