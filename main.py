@@ -1,6 +1,6 @@
 import os
 
-from flask import render_template, redirect
+from flask import render_template, redirect, send_from_directory
 from flask_login import login_required, logout_user, current_user
 
 from add_new import add_new_blueprint
@@ -39,6 +39,9 @@ def logout():
 def error(error):
     return main()
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 if __name__ == '__main__':
     db_session.global_init('db/gossip.sqlite')
