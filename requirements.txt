@@ -3,3 +3,4 @@ flask_login
 sqlalchemy
 sqlalchemy_serializer
 flask_wtf
+flask_sqlalchemy
