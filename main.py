@@ -1,20 +1,16 @@
-import os
-
 from flask import render_template, redirect
 from flask_login import login_required, logout_user, current_user
 
 from add_new import add_new_blueprint
 from app import app
 from data import db_session
+from data.new import News
 from find_news import find_news_blueprint
 from get_new import get_new_blueprint
 from get_user import get_user_blueprint
 from log_in import log_in_blueprint
 from log_up import log_up_blueprint
 from news_feed import news_feed_blueprint
-
-from data.new import News
-from data.user import User
 
 
 @app.route('/')

@@ -5,8 +5,6 @@ from data import db_session
 from data.new import News
 from data.user import User
 
-from flask_login import current_user
-
 get_new_blueprint = flask.Blueprint(
     'get_new',
     __name__,

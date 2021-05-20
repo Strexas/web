@@ -20,7 +20,6 @@ def find_news():
         req = request.form['req']
         news = ses.query(News).filter(News.title.like(f'%{req}%'))
         k = 0
-        print(dir(news))
         for _ in news:
             k += 1
             if k == 1:
