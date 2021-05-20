@@ -1,6 +1,6 @@
 import os
 
-from flask import render_template, redirect, send_from_directory
+from flask import render_template, redirect
 from flask_login import login_required, logout_user, current_user
 
 from add_new import add_new_blueprint
@@ -12,7 +12,9 @@ from get_user import get_user_blueprint
 from log_in import log_in_blueprint
 from log_up import log_up_blueprint
 from news_feed import news_feed_blueprint
-from delete_new import delete_new_blueprint
+
+from data.new import News
+from data.user import User
 
 
 @app.route('/')
@@ -27,6 +29,17 @@ def main():
         message += '\n you have to log in to continue'
     return render_template('main.html', title='Gossip', address=address,
                            message=message)
+
+
+@app.route('/user/<int:id_user>/delete/<int:id_new>')
+@login_required
+def delete_new(id_user, id_new):
+    ses = db_session.create_sessin()
+    news = ses.query(News).filter(
+        News.id == id_new, News.user_id == id_user).first()
+    ses.delete(news)
+    ses.commit()
+    return redirect(f'/user/{id_user}')
 
 
 @app.route('/logout')
@@ -52,7 +65,6 @@ if __name__ == '__main__':
     app.register_blueprint(get_new_blueprint)
     app.register_blueprint(find_news_blueprint)
     app.register_blueprint(news_feed_blueprint)
-    app.register_blueprint(delete_new_blueprint)
 
     # пользователь
     app.register_blueprint(get_user_blueprint)

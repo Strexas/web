@@ -25,7 +25,10 @@ def get_user(id):
             del subs[subs.index(str(id))]
             cur_user.subs = ','.join(subs)
         else:
-            cur_user.subs += ',' + str(id)
+            if cur_user.subs == '':
+                cur_user.subs = str(id)
+            else:
+                cur_user.subs += ',' + str(id)
         ses.commit()
         return redirect(f'/user/{id}')
     elif request.method == 'GET':

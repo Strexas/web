@@ -37,7 +37,7 @@ margin-left: 5%;
             {% endif %}
             {% for new in news %}
             <h5>
-                <a href="/new/{{ new.id }}">{{ new.title }}</a> views - {{ new.views }} date - {{new.created_date}}
+                <a href="/new/{{ new.id }}">{{ new.title }}</a> views - {{ new.views }}; date - {{new.created_date}}
                 {% if current_user.id == id or current_user.id == 1 %}
                 <a href="/user/{{ id }}/delete/{{ new.id }}" class="btn btn-danger">Delete</a>
                 {% endif %}

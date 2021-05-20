@@ -8,7 +8,7 @@
 <div class="contain">
     <h1><a href="/user/{{ id }}" class="name">{{ user }}</a></h1>
     {% for new in news%}
-    <h3><a href="/new/{{ new.id }}">{{ new.title }}</a> - {{ new.author }}</h3>
+    <h3><a href="/new/{{ new.id }}">{{ new.title }}</a> - {{ ses.query(User).get(new.user_id).nickname }}</h3>
     {% endfor %}
 </div>
 {% endblock %}
