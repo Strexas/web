@@ -33,6 +33,5 @@ def get_user(id):
         return redirect(f'/user/{id}')
     elif request.method == 'GET':
         news = user.news
-        print(news)
         is_user = str(id) in current_user.subs
         return render_template('get_user.html', news=news, user=user.nickname, title=user.nickname, id=id, is_user=is_user)
