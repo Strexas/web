@@ -12,6 +12,7 @@ from get_user import get_user_blueprint
 from log_in import log_in_blueprint
 from log_up import log_up_blueprint
 from news_feed import news_feed_blueprint
+from delete_new import delete_new_blueprint
 
 
 @app.route('/')
@@ -51,8 +52,8 @@ if __name__ == '__main__':
     app.register_blueprint(get_new_blueprint)
     app.register_blueprint(find_news_blueprint)
     app.register_blueprint(news_feed_blueprint)
+    app.register_blueprint(delete_new_blueprint)
 
     # пользователь
     app.register_blueprint(get_user_blueprint)
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='127.0.0.1', port=port)
+    app.run(host='127.0.0.1', port=8080)

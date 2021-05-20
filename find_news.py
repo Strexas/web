@@ -25,7 +25,6 @@ def find_news():
             k += 1
             if k == 1:
                 break
-
         if k:
             return render_template('find_news.html', news=news, value=req)
         else:

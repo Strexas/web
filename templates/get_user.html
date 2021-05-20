@@ -21,18 +21,26 @@ margin-left: 5%;
         <div class="child">
             {% if not(current_user.id == id) %}
             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                <form action="" method="post">
                 {% if not(is_user) %}
-                <button type="button" class="btn btn-success" id="subscribe">Subscribe</button>
+                <button type="submit" class="btn btn-success" id="subscribe" >Subscribe</button>
                 {% else %}
-                <button type="button" class="btn btn-danger" id="subscribe">Unsubscribe</button>
+                <button type="submit" class="btn btn-danger" id="subscribe">Unsubscribe</button>
                 {% endif %}
+                    </form>
             </div>
             {% endif %}
         </div>
         <div class="child">
+            {% if not(news) %}
+            <a class="alert alert-danger">There is nothing to show</a>
+            {% endif %}
             {% for new in news %}
             <h5>
-                <a href="/new/{{ new.id }}">{{ new.title }}</a> views - {{ new.views }}date - {{new.created_date}}
+                <a href="/new/{{ new.id }}">{{ new.title }}</a> views - {{ new.views }} date - {{new.created_date}}
+                {% if current_user.id == id or current_user.id == 1 %}
+                <a href="/user/{{ id }}/delete/{{ new.id }}" class="btn btn-danger">Delete</a>
+                {% endif %}
             </h5>
             {% endfor %}
         </div>
