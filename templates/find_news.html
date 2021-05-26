@@ -5,11 +5,27 @@
 <div class="container">
   <form action="" method="post" class="d-flex">
     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="req" value="{{ value }}">
-    <button class="btn btn-success" type="submit" >Search</button>
+    <button class="btn btn-success" type="submit">Search</button>
+    <div class="form-check" >
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="news" value="news" checked>
+      <label class="form-check-label" for="news">
+        News
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="users" value="users">
+      <label class="form-check-label" for="users">
+        Users
+      </label>
+    </div>
   </form>
   {% for new in news %}
   <div class="container">
+    {% if is_news%}
     <h2><a href="/new/{{ new.id }}">{{ new.title }}</a> - {{ ses.query(User).get(new.user_id).nickname }}</h2>
+    {% else %}
+    <h2><a href="/user/{{ new.id }}">{{ new.nickname }}</a></h2>
+    {% endif %}
   </div>
   {% endfor %}
   {% if message %}
