@@ -2,9 +2,14 @@
 
 
 {% block content %}
+<style>
+  .form-check {margin-left: 1%;}
+  #search {width: 60vw;}
+</style>
+
 <div class="container">
   <form action="" method="post" class="d-flex">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="req" value="{{ value }}">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="req" value="{{ value }}" id="search">
     <button class="btn btn-success" type="submit">Search</button>
     <div class="form-check" >
       <input class="form-check-input" type="radio" name="flexRadioDefault" id="news" value="news" checked>
