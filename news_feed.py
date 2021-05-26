@@ -18,7 +18,6 @@ news_feed_blueprint = flask.Blueprint(
 def news_feed(id):
     ses = db_session.create_sessin()
     user = ses.query(User).get(id)
-    print(user.subs)
     subs = [int(i) for i in user.subs.split(',')]
     news = ses.query(News).filter(News.user_id.in_(subs))[::-1]
     return render_template('news_feed.html', title='Feed', news=news, user=user.nickname, id=id, ses=ses, User=User)

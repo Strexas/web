@@ -1,10 +1,11 @@
-from flask import render_template, redirect
+from flask import render_template, redirect, request
 from flask_login import login_required, logout_user, current_user
 
 from add_new import add_new_blueprint
 from app import app
 from data import db_session
 from data.new import News
+from data.user import User
 from find_news import find_news_blueprint
 from get_new import get_new_blueprint
 from get_user import get_user_blueprint
@@ -27,7 +28,7 @@ def main():
                            message=message)
 
 
-@app.route('/user/<int:id_user>/delete/<int:id_new>')
+@app.route('/user/<int:id_user>/delete/new/<int:id_new>')
 @login_required
 def delete_new(id_user, id_new):
     ses = db_session.create_sessin()
@@ -36,6 +37,17 @@ def delete_new(id_user, id_new):
     ses.delete(news)
     ses.commit()
     return redirect(f'/user/{id_user}')
+
+
+@app.route('/user/<int:id>/delete/user')
+def delete_user(id):
+    if id == 1:
+        id = int(request.referrer.split('/')[-1])
+    ses = db_session.create_sessin()
+    user = ses.query(User).get(id)
+    ses.delete(user)
+    ses.commit()
+    return redirect('/main')
 
 
 @app.route('/logout')

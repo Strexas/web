@@ -20,7 +20,6 @@ def get_user(id):
     if request.method == 'POST':
         cur_user = ses.query(User).get(current_user.id)
         if str(id) in current_user.subs:
-            print(4)
             subs = current_user.subs.split(',')
             del subs[subs.index(str(id))]
             cur_user.subs = ','.join(subs)

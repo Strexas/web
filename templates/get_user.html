@@ -12,7 +12,7 @@ margin-right: 1%;
     margin-left: 5%;
 }
 .child:first-child {
-margin-left: 5%;
+margin-left: 10%;
 }
 </style>
 
@@ -39,7 +39,7 @@ margin-left: 5%;
             <h5>
                 <a href="/new/{{ new.id }}">{{ new.title }}</a> views - {{ new.views }}; date - {{new.created_date}}
                 {% if current_user.id == id or current_user.id == 1 %}
-                <a href="/user/{{ id }}/delete/{{ new.id }}" class="btn btn-danger">Delete</a>
+                <a href="/user/{{ id }}/delete/new/{{ new.id }}" class="btn btn-danger">Delete</a>
                 {% endif %}
             </h5>
             {% endfor %}

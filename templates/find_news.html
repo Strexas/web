@@ -9,7 +9,7 @@
   </form>
   {% for new in news %}
   <div class="container">
-    <h1><a href="/new/{{ new.id }}">{{ new.title }}</a></h1>
+    <h2><a href="/new/{{ new.id }}">{{ new.title }}</a> - {{ ses.query(User).get(new.user_id).nickname }}</h2>
   </div>
   {% endfor %}
   {% if message %}

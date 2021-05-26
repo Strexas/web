@@ -24,21 +24,27 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
         <li class="nav_item">
           <a class="nav-link active" aria-current="page" href="/news_feed/{{ current_user.id }}">Feed</a>
         </li>
+
         <li class="nav-item dropdown">
+
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Act
           </a>
+
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="/add_new">Add new</a></li>
             <li><a class="dropdown-item" href="/find_news">Find gossips</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="/logout">Log out</a></li>
           </ul>
+
         </li>
       </ul>
+      <div align="right" class="nav_item"><a class="nav-link active" aria-current="page" href="/user/{{ current_user.id }}/delete/user"><font color="white">Delete</font></a></div>
     </div>
     {% else %}
     <div class="login">
